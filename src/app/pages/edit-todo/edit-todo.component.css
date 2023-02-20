@@ -1,0 +1,16 @@
+.message-container {
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid green;
+  border-radius: 5px;
+  width: 400px;
+  color: #04aa6d;
+
+  margin: auto;
+}
+
+.message-container > i:hover {
+  cursor: pointer;
+}

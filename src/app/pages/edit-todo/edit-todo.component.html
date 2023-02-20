@@ -1,0 +1,54 @@
+<div *ngIf="alert">
+  <div class="message-container">
+    <p class="success-msg">
+      <strong> Success! </strong>Your data has been updated successfully.
+    </p>
+    <i
+      (click)="closeAlert()"
+      class="fa fa-close"
+      [ngStyle]="{ color: 'green' }"
+    ></i>
+  </div>
+</div>
+<div class="form-wrapper">
+  <form class="form-body" (ngSubmit)="editTodoHandler()" [formGroup]="editTodo">
+    <div class="inputs">
+      <label for="text">Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Add todo"
+        formControlName="name"
+        class="input-field"
+      />
+
+      <label for="date">Date</label>
+      <input type="date" id="date" formControlName="date" class="input-field" />
+    </div>
+
+    <div class="radio-buttons">
+      <div>
+        <label for="status">Active</label>
+        <input
+          type="radio"
+          name="status"
+          value="active"
+          formControlName="status"
+          class="radio-button"
+        />
+      </div>
+      <div>
+        <label for="status">Completed</label>
+        <input
+          type="radio"
+          formControlName="status"
+          value="completed"
+          class="radio-button"
+        />
+      </div>
+    </div>
+
+    <button routerLink="/" class="btn width-btn btn-gray">back</button>
+    <button class="btn width-btn save-btn">update</button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+.header {
+  color: #0a66c2;
+  margin-top: 10px;
+}
+
+.checked-icon {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.disabledButton {
+  background-color: red;
+}

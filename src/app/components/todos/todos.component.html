@@ -1,0 +1,66 @@
+<app-add-todo (onAddTodo)="addTodo($event)"></app-add-todo>
+
+<div class="filters-container">
+  <div>
+    <label>Filter by date:</label>
+    <input class="input-field" type="date" [(ngModel)]="searchInput.date" />
+  </div>
+  <div>
+    <label>Filter by status:</label>
+    <select
+      class="drop-down-list"
+      #filterStatus
+      [(ngModel)]="searchInput.status"
+    >
+      <option [value]="item.value" *ngFor="let item of status">
+        {{ item.placeholder }}
+      </option>
+    </select>
+  </div>
+  <button class="btn btn-yellow" (click)="resetFilter()">reset</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th (click)="sort('id')"># <i class="fa fa-sort sort-arrow"></i></th>
+      <th (click)="sort('name')">Name <i class="fa fa-sort sort-arrow"></i></th>
+      <th (click)="sort('date')">Date <i class="fa fa-sort sort-arrow"></i></th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let todo of todos
+          | orderBy : orderHeader : isNotReverseOrder
+          | filterBy : searchInput
+      "
+    >
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.name }}</td>
+      <td>{{ todo.date }}</td>
+      <td>
+        <span class="{{ todo.status }}">{{ todo.status }}</span>
+      </td>
+      <td class="actions-container">
+        <i
+          class="fa fa-edit"
+          [ngStyle]="{ color: 'blue' }"
+          routerLink="/update/{{ todo.id }}"
+          title="Edit"
+        ></i>
+        <i
+          class="fa fa-trash"
+          [ngStyle]="{ color: 'red' }"
+          (click)="deleteTodo(todo)"
+          title="Delete"
+        ></i>
+      </td>
+    </tr>
+    <div *ngIf="(todos | filterBy : searchInput).length === 0">
+      No data found.
+    </div>
+  </tbody>
+</table>

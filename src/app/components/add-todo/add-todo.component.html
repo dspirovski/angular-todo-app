@@ -1,0 +1,48 @@
+<div class="form-wrapper">
+  <img
+    class="checked-icon"
+    src="../../../assets/checked-icon.png"
+    alt="checked-icon"
+  />
+  <h1 class="header">Angular todo app</h1>
+  <form class="form-body" (ngSubmit)="submitHandler()">
+    <div class="inputs">
+      <label for="text">Name</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        id="name"
+        placeholder="Name"
+        class="input-field"
+      />
+      <label for="date">Date</label>
+      <input type="date" [(ngModel)]="date" class="input-field" name="date" />
+    </div>
+
+    <div class="radio-buttons">
+      <div>
+        <label for="status">Active</label>
+        <input
+          type="radio"
+          name="active"
+          value="active"
+          [(ngModel)]="status"
+          class="radio-button"
+        />
+      </div>
+      <div>
+        <label for="status">Completed</label>
+        <input
+          type="radio"
+          name="status"
+          [(ngModel)]="status"
+          value="completed"
+          class="radio-button"
+        />
+      </div>
+    </div>
+
+    <button class="btn width-btn save-btn">save</button>
+  </form>
+</div>
