@@ -15,6 +15,13 @@ export class AddTodoComponent {
 
   saveButtonDisabled = false;
 
+  /**
+
+@function submitHandler
+@description Handles the submission of a form containing todo data.
+@returns {void}
+*/
+
   submitHandler() {
     if (!this.name || !this.date || !this.status) {
       alert('Please fill the form bellow.');

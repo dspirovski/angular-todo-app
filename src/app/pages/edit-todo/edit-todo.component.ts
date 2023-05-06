@@ -16,10 +16,25 @@ export class EditTodoComponent {
     date: new FormControl(''),
     status: new FormControl('active'),
   });
+
+  /**
+   * Creates an instance of the component and injects dependencies.
+   *
+   * @constructor
+   * @param {ActivatedRoute} router - The Angular router service for the component.
+   * @param {TodoService} todoService - The custom service for handling todo data.
+   */
+
   constructor(
     private router: ActivatedRoute,
     private todoService: TodoService
   ) {}
+
+  /**
+   * Initializes the component with the current todo item from the service.
+   *
+   * @returns {void}
+   */
 
   ngOnInit(): void {
     this.todoService
@@ -33,6 +48,12 @@ export class EditTodoComponent {
       });
   }
 
+  /**
+   * Submits the edited todo item to the service for updating.
+   *
+   * @returns {void}
+   */
+
   editTodoHandler() {
     this.todoService
       .updateTodo(this.router.snapshot.params.id, this.editTodo.value)
@@ -40,6 +61,12 @@ export class EditTodoComponent {
 
     this.alert = true;
   }
+
+  /**
+   * Closes the alert box displayed by the component.
+   *
+   * @returns {void}
+   */
 
   closeAlert() {
     this.alert = false;
