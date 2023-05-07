@@ -6,3 +6,5 @@ Todo application where you can:
 - filter data through Date and Status.
 
 This application is made with HTML5, CSS3, Angular. 
+
+NOTE: To run this project, please type ng serve + json-server --watch db.json --port 5000 (to start local server).
